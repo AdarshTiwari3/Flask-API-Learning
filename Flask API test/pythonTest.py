@@ -3,3 +3,5 @@ b=12
 print(test)
 
 print(b)
+
+print("This is a test for github commit from VSCode")
