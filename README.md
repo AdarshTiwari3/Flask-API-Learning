@@ -1,2 +1,2 @@
-# This repository is dedicated to learning Flask API in Python.
+# This repository is dedicated to learn Flask API in Python.
 
