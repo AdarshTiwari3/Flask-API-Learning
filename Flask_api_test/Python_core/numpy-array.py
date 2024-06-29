@@ -8,8 +8,8 @@ for i in range(n):
 print(arr)
 
 val=int(input("Enter the value to search: "))
-for i,val in enumerate(arr):
-    if i==val:
-        print("Value found at index: ",i)
+for i,value in enumerate(arr):
+    if value==val:
+        print("Value found at index: ",i,"Value: ",value)
         break
 else: print("Value not found")
