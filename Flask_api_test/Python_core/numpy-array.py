@@ -9,6 +9,7 @@ print(arr)
 
 val=int(input("Enter the value to search: "))
 for i,value in enumerate(arr):
+    print("i=",i)
     if value==val:
         print("Value found at index: ",i,"Value: ",value)
         break
