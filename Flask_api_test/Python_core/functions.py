@@ -27,3 +27,13 @@ def sum(*varLen):
         s=s+i
     return s
 print(sum(a, b, 3, 4, 5)) # takes as a tuple
+
+# function to take keyword variable length keyword arguments
+
+def display(name, **varLen):
+    print("name=", name)
+    for key, value in varLen.items():
+        print(key, value)
+
+# display(name="Adarsh", age=20, city="New Delhi", country="India") # takes as a dictionary
+display( age=20, city="New Delhi", country="India", name="Adarsh") #both are same
