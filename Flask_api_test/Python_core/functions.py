@@ -19,3 +19,11 @@ def swap_two_numbers(a, b):
 a=int(input("Enter first number: "))
 b=int(input("Enter second number: "))
 print(swap_two_numbers(a, b))
+
+# function to take variable length arguments
+def sum(*varLen):
+    s=0
+    for i in varLen:
+        s=s+i
+    return s
+print(sum(a, b, 3, 4, 5)) # takes as a tuple
