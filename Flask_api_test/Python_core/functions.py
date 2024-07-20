@@ -44,15 +44,17 @@ globalVar=11
 print("id-global=",id(globalVar))
 def func():
     localVar=12
-    globals()['globalVar'] # to change the value of global variable inside the function scope use globals() method
-    # globalVar=13
+    globalsVar=15
+    print("using as local variable-",globalsVar) 
+    x=globals()['globalVar'] # to change the value of global variable inside the function scope use globals() method
+    globals()['globalVar']=20
     print("id-local=",id(localVar))
     
     # global globalVar
-    print("id-global=",id(globalVar))
+    print("id-global=",id(x))
     
     print("localVar=", localVar)
-    print("globalVar=", globalVar)
+    print("globalVar=", x)
 
 func()
-print("globalVar=", globalVar)
+print("outside-globalVar=", globalVar)
