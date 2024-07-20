@@ -43,14 +43,14 @@ display( age=20, city="New Delhi", country="India", name="Adarsh") #both are sam
 globalVar=11
 print("id-global=",id(globalVar))
 def func():
-    localVar=10
-    
-    globalVar=13
+    localVar=12
+    globals()['globalVar'] # to change the value of global variable inside the function scope use globals() method
+    # globalVar=13
     print("id-local=",id(localVar))
     
     # global globalVar
     print("id-global=",id(globalVar))
-    globalVar=12 # this behaves like local variable, to change the value of global variable inside the function scope use global keyword
+    
     print("localVar=", localVar)
     print("globalVar=", globalVar)
 
