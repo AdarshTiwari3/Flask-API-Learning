@@ -45,7 +45,7 @@ globalVar=11
 def func():
     localVar=10
     global globalVar
-    globalVar=12 # this behaves like local variable to change the value of global variable inside the function scope use global keyword
+    globalVar=12 # this behaves like local variable, to change the value of global variable inside the function scope use global keyword
     print("localVar=", localVar)
     print("globalVar=", globalVar)
 
