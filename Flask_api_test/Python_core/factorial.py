@@ -1,3 +1,7 @@
+import sys
+limit=sys.getrecursionlimit()
+print("Recursion limit is: ", limit)
+
 def factorial(n):
     if(n==0 or n==1):
         return 1
@@ -13,9 +17,9 @@ def factorial(n):
 n=int(input("Enter the factorial number: "))
 if(n>0):
     facto=factorial(n)
+    print("Factorial of {} is: {}".format(n, facto))
 else:
     print("Please enter a non-negative integer.")
-print("Factorial of {} is: {}".format(n, facto))
 
 #using recursion
 def factorial_recursion(n):
