@@ -4,9 +4,15 @@ def fibonacci(n):
         fibo.append(fibo[i-1]+fibo[i-2])
     return fibo
 
-n=int(input("Enter the number of elements in the fibonacci sequence: "))
-x=fibonacci(n)
-print("Fibonacci series: {}".format(x))
+try:
+    n = int(input("Enter the number of elements in the Fibonacci sequence: "))
+    if n <= 0:
+        raise ValueError("The number must be a positive integer.")
+except ValueError as e:
+    print(e)
+if(n>0):
+    x=fibonacci(n)
+    print("Fibonacci series: {}".format(x))
 
 #using recursion    
 def fibonacci(n):
@@ -16,8 +22,9 @@ def fibonacci(n):
         return fibonacci(n-1)+fibonacci(n-2)
         
 # n=int(input("Enter the number of elements in the fibonacci sequence: "))
-fibonacci(n)
-print("{} index value in Fibonacci: {}".format(n,fibonacci(n)))
+if(n>0):
+    fibonacci(n)
+    print("{} index value in Fibonacci: {}".format(n,fibonacci(n)))
 
 #using two variables
 def fibonacci(n):
@@ -34,4 +41,5 @@ def fibonacci(n):
             y=sum
             print(sum, end=" ")
 
-fibonacci(n)
+if(n>0):
+    fibonacci(n)
