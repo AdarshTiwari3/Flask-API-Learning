@@ -23,12 +23,15 @@ print("{} index value in Fibonacci: {}".format(n,fibonacci(n)))
 def fibonacci(n):
     x=0
     y=1
-    print(x, y, end=" ")
-    for i in range(2,n):
-        sum=x+y
-        #now swap value of y with sum and x with y
-        x=y
-        y=sum
-        print(sum, end=" ")
+    if(n==1):
+        print(x)
+    else:
+        print(x, y, end=" ")
+        for i in range(2,n):
+            sum=x+y
+            #now swap value of y with sum and x with y
+            x=y
+            y=sum
+            print(sum, end=" ")
 
 fibonacci(n)
