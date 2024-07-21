@@ -14,6 +14,21 @@ def fibonacci(n):
         return n
     else:
         return fibonacci(n-1)+fibonacci(n-2)
-n=int(input("Enter the number of elements in the fibonacci sequence: "))
+        
+# n=int(input("Enter the number of elements in the fibonacci sequence: "))
 fibonacci(n)
 print("{} index value in Fibonacci: {}".format(n,fibonacci(n)))
+
+#using two variables
+def fibonacci(n):
+    x=0
+    y=1
+    print(x, y, end=" ")
+    for i in range(2,n):
+        sum=x+y
+        #now swap value of y with sum and x with y
+        x=y
+        y=sum
+        print(sum, end=" ")
+
+fibonacci(n)
