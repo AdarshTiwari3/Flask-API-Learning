@@ -15,19 +15,22 @@ if(n>0):
     print("Fibonacci series: {}".format(x))
 
 #using recursion    
-def fibonacci(n):
-    if n<=1:
-        return n
+def fibonacci_rec(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
     else:
-        return fibonacci(n-1)+fibonacci(n-2)
-        
-# n=int(input("Enter the number of elements in the fibonacci sequence: "))
-if(n>0):
-    fibonacci(n)
-    print("{} index value in Fibonacci: {}".format(n,fibonacci(n)))
+        return fibonacci_rec(n - 1) + fibonacci_rec(n - 2)
+
+# pos = int(input("Enter the position in the Fibonacci sequence: "))
+if n >= 0:
+    print("Fibonacci number at position {}: {}".format(n, fibonacci_rec(n-1)))
+else:
+    print("Please enter a non-negative integer.")
 
 #using two variables
-def fibonacci(n):
+def fibonacci_two_variables(n):
     x=0
     y=1
     if(n==1):
@@ -42,4 +45,4 @@ def fibonacci(n):
             print(sum, end=" ")
 
 if(n>0):
-    fibonacci(n)
+    fibonacci_two_variables(n)
