@@ -75,3 +75,27 @@ addr.getAddress()
 print("Protected-Variables",addr._city) #this will not give an error because _city is a protected variable because in python it doesn't force the access restriction
 addr2=HomeNumber("123")
 addr2.getHomeNumber()
+
+#private, public, protected methods example
+class Student:
+    def __init__(self, name, rollNumber):
+        self.__name = name
+        self._rollNumber = rollNumber
+    def __getName(self): #private method, put double underscore before the method name
+        return self.__name
+    def getRollNumber(self): #public method because it doesn't have any underscore before the method name
+        return self._rollNumber
+    def setName(self, name):
+        self.__name=name
+    def setRollNumber(self, rollNumber):
+        self._rollNumber=rollNumber
+    def _getStudent(self): #protected method, put single underscore before the method name
+        print("Name: {}\nRoll Number: {}".format(self.__name, self._rollNumber))
+
+student=Student("Adarsh", 1)
+print(student.getRollNumber()) #public method
+student.setRollNumber(2) #public method
+print(student.getRollNumber()) #public method
+print(student._rollNumber) #protected variable
+print(student._getStudent()) #protected method
+# print(student.__getName()) #private method, this will give an error
