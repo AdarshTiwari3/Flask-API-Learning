@@ -32,6 +32,7 @@ class E(A, D): # E is inheriting class A and D, this is an example of multiple i
     def feature7(self):
         print("I am Feature 7")
     def feature8(self):
+        super().feature1() # this will call the feature1 of class A
         print("I am Feature 8")
 
 b1=B() # this will call the constructor of class B if it is present, if not then it will call the constructor of class A otherwise it will call the constructor of the parent class, we can also call the constructor of the parent class using super
@@ -47,4 +48,4 @@ e1.feature1()
 e1.feature5()
 e1.feature7()
 e1.feature2() # this will call the feature2 of class A because it is present in class A, If it is not present in class A then it will call the feature2 of class D (MRO)
-
+e1.feature8()
