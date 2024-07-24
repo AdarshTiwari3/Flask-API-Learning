@@ -9,7 +9,7 @@ class A:
         print("I am Feature 2")
 class B(A): # B is inheriting class A
     def __init__(self):
-        super().__init__()
+        super().__init__() # this will call the constructor of the parent class
         print("I am inside class B constructor")
     def feature3(self):
         print("I am Feature 3")
@@ -23,9 +23,12 @@ class C(B): # C is inheriting class B,his is an example of multilevel inheritanc
 class D:
     def feature5(self):
         print("I am Feature 5")
-    def feature6(self):
-        print("I am Feature 6")
+    def feature2(self):
+        print("I am Feature 2-D")
 class E(A, D): # E is inheriting class A and D, this is an example of multiple inheritance
+    def __init__(self):
+        super().__init__() # this will call the constructor of the parent class, MRO(Method Resolution Order) is used to resolve the conflicts in multiple inheritance, it goes from left to right
+        print("I am inside class E constructor")
     def feature7(self):
         print("I am Feature 7")
     def feature8(self):
@@ -43,4 +46,5 @@ e1=E()
 e1.feature1()
 e1.feature5()
 e1.feature7()
+e1.feature2() # this will call the feature2 of class A because it is present in class A, If it is not present in class A then it will call the feature2 of class D (MRO)
 
