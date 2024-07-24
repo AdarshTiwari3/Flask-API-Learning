@@ -1,10 +1,16 @@
 #inheritance
 class A:
+    def __init__(self):
+        print("I am inside class A constructor")
+
     def feature1(self):
         print("I am Feature 1")
     def feature2(self):
         print("I am Feature 2")
 class B(A): # B is inheriting class A
+    def __init__(self):
+        super().__init__()
+        print("I am inside class B constructor")
     def feature3(self):
         print("I am Feature 3")
     def feature4(self):
@@ -25,7 +31,7 @@ class E(A, D): # E is inheriting class A and D, this is an example of multiple i
     def feature8(self):
         print("I am Feature 8")
 
-b1=B()
+b1=B() # this will call the constructor of class B if it is present, if not then it will call the constructor of class A otherwise it will call the constructor of the parent class, we can also call the constructor of the parent class using super
 b1.feature1()
 b1.feature2()
 b1.feature3()
