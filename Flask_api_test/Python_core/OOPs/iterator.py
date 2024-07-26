@@ -27,5 +27,6 @@ class MyNumbers:
 myclass=MyNumbers()
 print(next(myclass))
 print("Using for loop")
+#even we have printed 1 above, it will start from 2 because we have already printed 1 and won't print it again
 for i in myclass:
     print(i)
