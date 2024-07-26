@@ -5,7 +5,10 @@ class A:
         print("I am class A")
 
 class B(A):
-    pass
+    
+    def display(self): # this is the method overriding, this will override the display
+        # super().display() # this will call the display method of class A
+        print("I am class B")
 
 b1=B()
-b1.display() # this will call the display method of class A because it is not present in class B
+b1.display() # this will call the display method of class B because it is present in class B, if it is not present in class B then it will call the display method of class A
