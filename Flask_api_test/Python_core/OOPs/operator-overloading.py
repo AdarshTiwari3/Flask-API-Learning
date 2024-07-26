@@ -16,7 +16,9 @@ class Student:
             return True
         else:
             return False
-
+    def __str__(self):
+        return "{} {}".format(self.marks1, self.marks2)
+        # return self.marks1, self.marks2
 
 stu1 = Student(10, 20)
 stu2 = Student(30, 40)
@@ -27,4 +29,5 @@ stu3=stu1+stu2
 print(stu3.marks1, stu3.marks2)
 print("stu1>stu2=",stu1>stu2)
 print(stu6.marks1, stu6.marks2)
-        
+# print(stu1.__str__()) #this will print the address of the object but after str method it will print the values of the object if we don't specify "{} {}".format then it will print the (val1, val2) in tuple format
+print(stu1) #this will print the values of the object because of __str__ method
