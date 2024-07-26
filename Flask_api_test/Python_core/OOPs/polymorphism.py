@@ -27,3 +27,8 @@ editor=MyEditor()
 lap=Laptop()
 # lap.code(editor)
 lap.code(editor)
+
+a=10
+b=23
+c=int.__add__(a,b)
+print("c=", c)
