@@ -3,7 +3,7 @@
 def my_numbers():
     a=1
     while a<=100:
-        yield a
+        yield a  #yield is used to return the value and it will not terminate the function, it will return the value and function will be in the same state
         a+=1
 
 values=my_numbers()
