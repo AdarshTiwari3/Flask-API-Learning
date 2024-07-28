@@ -27,7 +27,7 @@ def factorial_recursion(n):
     if(n==0 or n==1):
         return 1
     else:
-        return n*factorial(n-1)
+        return n*factorial_recursion(n-1)
 
 if(n>0):
     fact=factorial_recursion(n)
