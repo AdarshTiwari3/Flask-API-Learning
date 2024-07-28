@@ -12,12 +12,25 @@
 #10. + - This mode is used to open the file in read and write mode
 
 #Opening a file
-file=open("MyFile","w") #opening a file in write mode
-file.write("Hello, This is Adarsh") #writing the data in the file
-file.write("\nName: Adarsh\nAge: X\nAddress: XYZ", ) 
-file.close()
-print("File created successfully.")
+# file=open("MyFile","w") #opening a file in write mode
+# file.write("Hello, This is Adarsh") #writing the data in the file
+# file.write("\nName: Adarsh\nAge: X\nAddress: XYZ", ) 
+# file.close()
+# print("File created successfully.")
 
 #Reading the data from the file
 file1=open("MyFile","r") #opening a file in read mode
-print("Data in the file is:",file1.read()) #reading the data from the file
+# print("Data in the file is:",file1.read()) #reading the data from the file
+print("First line- ",file1.readline(),end='') #reading the first line from the file
+print("Second line- ",file1.readline(), end='') #reading the second line from the file
+print("first 12 character- ",file1.read(12)) #reading the first character from the file
+# print("First 10 characters=",file1.readline(10),end='')
+
+
+#Appending the data in the file
+file2=open("MyFile","a") #opening a file in append mode
+file2.write("\nThis is the appended data.") #appending the data in the file
+print(file1.read())
+
+file1.close()
+file2.close()   
