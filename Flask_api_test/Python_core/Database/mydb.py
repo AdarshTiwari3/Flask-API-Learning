@@ -7,7 +7,7 @@ myCursor = myDatabase.cursor() #this is used to interact with the database, it w
 myCursor.execute("select * from student") #this will create a database with the name mydb
  
 results = myCursor.fetchall() #this will fetch all the records from the table student
-
+#fetchone also used to fetch the records from the table
 for i in myCursor:
     print(i)
 
