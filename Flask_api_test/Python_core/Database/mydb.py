@@ -1,12 +1,16 @@
 import mysql.connector
 
-myDatabase = mysql.connector.connect(host="localhost", user="root", password="admin")
+myDatabase = mysql.connector.connect(host="localhost", user="root", password="admin", database="mydb")
 
 myCursor = myDatabase.cursor() #this is used to interact with the database, it will execute the queries and store the result in it
 
-myCursor.execute("CREATE DATABASE mydb") #this will create a database with the name mydb
+myCursor.execute("select * from student") #this will create a database with the name mydb
+ 
+results = myCursor.fetchall() #this will fetch all the records from the table student
 
-myCursor.execute("SHOW DATABASES") #this will show all the databases present in the database server, lower case also works
+for i in myCursor:
+    print(i)
 
-for db in myCursor:
-    print("My Databases are:",db)
+#both are same
+for i in results:
+    print(i)
