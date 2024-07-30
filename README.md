@@ -7,4 +7,7 @@
 ## To deactivate an Environment-
     deactivate
 
+## To run Flask App-
+    flask run
+
 
