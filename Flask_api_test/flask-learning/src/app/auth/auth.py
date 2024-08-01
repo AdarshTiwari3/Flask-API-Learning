@@ -1,16 +1,47 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify, session
+from werkzeug.security import generate_password_hash, check_password_hash
+from app import db
+from .models import User
 
-# Create a blueprint for authentication routes
-auth = Blueprint('auth', __name__) # 'auth' is the name of the blueprint and __name__ is the name of the module or package.
+auth = Blueprint('auth', __name__)
 
-@auth.route('/login') # This is a route decorator, it is used to register a view function for a given URL rule. this is a routing mechanism in Flask
+@auth.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if User.query.filter_by(username=username).first():
+        return jsonify({"message": "User already exists"}), 400
+
+    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+    new_user = User(username=username, password=hashed_password)
+    db.session.add(new_user)
+    db.session.commit()
+    
+    return jsonify({"message": "User registered successfully"}), 201
+
+@auth.route('/login', methods=['POST'])
 def login():
-    return 'This is going to be a Login page'
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
 
-@auth.route('/logout')
+    user = User.query.filter_by(username=username).first()
+    if not user or not check_password_hash(user.password, password):
+        return jsonify({"message": "Invalid credentials"}), 401
+
+    session['user'] = username
+    return jsonify({"message": "Logged in successfully"}), 200
+
+@auth.route('/logout', methods=['POST'])
 def logout():
-    return 'This is going to be a Logout page'
+    session.pop('user', None)
+    return jsonify({"message": "Logged out successfully"}), 200
 
-@auth.route('/signup')
-def signup():
-    return 'This is going to be a Signup page'
+@auth.route('/protected', methods=['GET'])
+def protected():
+    if 'user' not in session:
+        return jsonify({"message": "Unauthorized"}), 401
+
+    return jsonify({"message": f"Hello, {session['user']}!"}), 200

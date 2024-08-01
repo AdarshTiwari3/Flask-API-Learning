@@ -1,10 +1,19 @@
 from flask import Flask
-from .auth.auth import auth # Import the auth blueprint . means from the same directory and .auth means from the auth folder and auth means from the auth.py file
+from flask_sqlalchemy import SQLAlchemy
+from app.config.config import Config # Import the Config class from config which is in the config folder of the app package
 
-def create_app(): # Create a function create_app, this is a special function name from Flask
-    app = Flask(__name__) # Create a Flask application, this is a special variable name app that is calling Flask class
+db = SQLAlchemy()  # Create a SQLAlchemy object db
+
+def create_app():  # Create a function create_app
+    app = Flask(__name__)  # Create a Flask application instance
     
+    app.config.from_object(Config)  # Load configuration from config.py
+    db.init_app(app)  # Initialize the SQLAlchemy object with the Flask app
+   
     # Register the blueprint
-    app.register_blueprint(auth)
+    from .auth.auth import auth  # Import the auth blueprint
+    app.register_blueprint(auth, url_prefix='/auth')
+    
+    
     
     return app
