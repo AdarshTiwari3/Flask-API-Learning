@@ -17,6 +17,9 @@ def create_app():  # Create a function create_app
     from .auth.auth import auth  # Import the auth blueprint
     app.register_blueprint(auth, url_prefix='/auth')
     
-    
+    with app.app_context():
+        # db.drop_all() # Ensure all tables are dropped
+        db.create_all()  # Ensure tables are created
+        
     
     return app
